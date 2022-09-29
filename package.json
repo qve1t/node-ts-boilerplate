@@ -4,8 +4,8 @@
   "description": "Simple node.js boilerplate with typescript for personal usage",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./dist/* && tsc -b tsconfig.json",
-    "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
+    "build": "rimraf ./dist/* && tsc -b tsconfig.build.json",
+    "dev": "tsc-watch -p ./tsconfig.build.json --onSuccess \"node ./dist/app.js\"",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier": "prettier --write .",
@@ -45,6 +45,7 @@
     "typescript": "^4.8.3"
   },
   "dependencies": {
+    "class-validator": "^0.13.2",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "morgan": "^1.10.0",

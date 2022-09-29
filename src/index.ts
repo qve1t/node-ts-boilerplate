@@ -1,11 +1,13 @@
 import dotenv from "dotenv";
 import express from "express";
-import envCheck from "./config/envCheck";
+import envCheck, { setOptionalEnv, setRequiredEnv } from "./config/envCheck";
 import { logInfo } from "./config/logger";
 import { errorHandler, successHandler } from "./config/morgan";
 import unexpectedErrorHandler from "./config/unexpectedErrorHandler";
 
 dotenv.config();
+setRequiredEnv(["ENV", "PORT"]);
+setOptionalEnv([]);
 envCheck();
 
 const app = express();
