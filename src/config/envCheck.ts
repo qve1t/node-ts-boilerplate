@@ -29,12 +29,12 @@ const envCheck = (exitIfFail = true, timeout = 5000) => {
   if (fails.length > 0) {
     const errors = fails.join(", ");
     console.log(errors + "\nNOT PROVIDED! Check .env file");
-  }
 
-  if (exitIfFail) {
-    setTimeout(() => {
-      process.exit(1);
-    }, timeout);
+    if (exitIfFail) {
+      setTimeout(() => {
+        process.exit(1);
+      }, timeout);
+    }
   }
 };
 
